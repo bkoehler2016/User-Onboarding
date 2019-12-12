@@ -2,6 +2,26 @@
   text-align: center;
 }
 
+
+input {
+  margin: 10px;
+}
+
+Button {
+  margin-top: 10px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  background-color: #0d546b;
+  color: #f5f8f8;
+}
+
+.userCard {
+  border: 3px dashed black;
+  background-color: #3fc5f0;
+  margin: 20px auto;
+  width: 30%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,6 +52,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

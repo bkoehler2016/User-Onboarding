@@ -2,7 +2,17 @@ import React from "react";
 import { Form, Field, withFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
+import { Button, FormGroup, Label } from "reactstrap";
 import { useState, useEffect } from "react";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardLink,
+  CardTitle,
+  CardSubtitle,
+} from "reactstrap";
 
 const UserForm = ({ errors, touched, values, status }) => {
   const [users, setUsers] = useState([]);
@@ -14,30 +24,44 @@ const UserForm = ({ errors, touched, values, status }) => {
   return (
     <div>
       <Form>
-        {touched.name && errors.name && <p className="error">{errors.name}</p>}
-        <Field type="text" name="name" placeholder="name" />
-        {touched.email && errors.email && (
-          <p className="error">{errors.email}</p>
-        )}
-        <Field type="email" name="email" placeholder="email" />
-        {touched.password && errors.password && (
-          <p className="error">{errors.password}</p>
-        )}
-        <Field type="password" name="password" placeholder="password" />
-        <label>
+        <FormGroup>
+          {touched.name && errors.name && (
+            <p className="error">{errors.name}</p>
+          )}
+          <Field type="text" name="name" placeholder="name" />
+          {touched.email && errors.email && (
+            <p className="error">{errors.email}</p>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Field type="email" name="email" placeholder="email" />
+          {touched.password && errors.password && (
+            <p className="error">{errors.password}</p>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Field type="password" name="password" placeholder="password" />
+        </FormGroup>
+        <Label>
           {touched.tos && errors.tos && <p className="error">{errors.tos}</p>}
           <Field type="checkbox" name="tos" />
           Agree to Terms of Service
-        </label>
-        <button type="submit">Submit</button>
+          <br />
+        </Label>
+        <br />
+        <Button type="submit">Submit</Button>
       </Form>
       {users.map(users => (
-        <ul key={users.id}>
-          <li>Name: {users.data.name}</li>
-          <li>Email: {users.data.email}</li>
-          <li>Password: {users.data.password}</li>
-          <li>TOS Accepted: {JSON.stringify(users.data.tos)}</li>
-        </ul>
+        <Card key={users.id}>
+          <CardBody className="userCard">
+            <CardText>Name: {users.data.name}</CardText>
+            <CardText>Email: {users.data.email}</CardText>
+
+            <CardSubtitle>
+              TOS Accepted: {JSON.stringify(users.data.tos)}
+            </CardSubtitle>
+          </CardBody>
+        </Card>
       ))}
     </div>
   );
