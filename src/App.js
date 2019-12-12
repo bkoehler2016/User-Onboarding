@@ -1,11 +1,14 @@
 import React from "react";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
-import axios from "axios";
+import UserForm from "./components/UserForm";
 import "./App.css";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <h1>User Onboarding</h1>
+      <UserForm />
+    </div>
+  );
 }
 
 export default App;
