@@ -4,7 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { Button, FormGroup, Label } from "reactstrap";
 import { useState, useEffect } from "react";
-import { Card, CardText, CardBody, CardSubtitle } from "reactstrap";
+import { Card, CardText, CardBody } from "reactstrap";
 
 const UserForm = ({ errors, touched, values, status }) => {
   const [users, setUsers] = useState([]);
@@ -45,13 +45,10 @@ const UserForm = ({ errors, touched, values, status }) => {
       </Form>
       {users.map(users => (
         <Card key={users.id}>
-          <CardBody className="userCard">
+          <CardBody>
             <CardText>Name: {users.data.name}</CardText>
             <CardText>Email: {users.data.email}</CardText>
-
-            <CardSubtitle>
-              TOS Accepted: {JSON.stringify(users.data.tos)}
-            </CardSubtitle>
+            <CardText>TOS Accepted: {JSON.stringify(users.data.tos)}</CardText>
           </CardBody>
         </Card>
       ))}
