@@ -4,15 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { Button, FormGroup, Label } from "reactstrap";
 import { useState, useEffect } from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardLink,
-  CardTitle,
-  CardSubtitle,
-} from "reactstrap";
+import { Card, CardText, CardBody, CardSubtitle } from "reactstrap";
 
 const UserForm = ({ errors, touched, values, status }) => {
   const [users, setUsers] = useState([]);
@@ -72,7 +64,7 @@ const FormikUserForm = withFormik({
       name: name || "",
       email: email || "",
       password: password || "",
-      tos: tos || false,
+      tos: tos || false
     };
   },
   validationSchema: yup.object().shape({
@@ -88,7 +80,7 @@ const FormikUserForm = withFormik({
     tos: yup
       .boolean()
       .oneOf([true], "You must accept TOS")
-      .required("Please accept tos"),
+      .required("Please accept tos")
   }),
   handleSubmit: (values, { resetForm, setStatus }) => {
     axios
@@ -101,7 +93,7 @@ const FormikUserForm = withFormik({
       .catch(error => {
         console.log(error);
       });
-  },
+  }
 })(UserForm);
 
 export default FormikUserForm;
