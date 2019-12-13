@@ -3,9 +3,7 @@
 }
 
 
-input {
-  margin: 10px;
-}
+
 
 Button {
   margin-top: 10px;
@@ -31,6 +29,20 @@ Button {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+input {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.tos {
+  font-size: 20px;
+}
+
+
+tos checkbox {
+  margin: 20px;
 }
 
 .App-header {

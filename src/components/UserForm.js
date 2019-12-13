@@ -34,7 +34,7 @@ const UserForm = ({ errors, touched, values, status }) => {
         <FormGroup>
           <Field type="password" name="password" placeholder="password" />
         </FormGroup>
-        <Label>
+        <Label className="tos">
           {touched.tos && errors.tos && <p className="error">{errors.tos}</p>}
           <Field type="checkbox" name="tos" />
           Agree to Terms of Service
